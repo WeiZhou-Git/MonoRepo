@@ -1,0 +1,7 @@
+{
+    "name": "@samsung-speaker/utils",
+    "version": "1.0.0",
+    "main": "dist/utils.js",
+    "private": true
+  }
+  

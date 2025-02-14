@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="https://developer.tizen.org/" version="$REACT_APP_VERSION$" height="1080" width="1920" viewmodes="fullscreen">
+    <access origin="*" subdomains="true"></access>
+    <tizen:application id="mAh4MqCAxR.okRabbit" package="mAh4MqCAxR" required_version="2.3"/>
+	$REACT_APP_LOW$
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
+    <icon src="icon.png"/>
+    <tizen:metadata key="http://samsung.com/tv/metadata/use.network" value="true"/>
+    <tizen:metadata key="http://samsung.com/tv/metadata/multiscreen.support" value="true"/>
+    <tizen:metadata key="http://samsung.com/tv/metadata/multitasking.support" value="true"/>
+	
+    <tizen:metadata key='http://samsung.com/tv/metadata/use.preview' value='endpoint_URL=https://pwmedia.video.9ddm.com/tv/lean/fl/active?id=4285&amp;level=0&amp;ptf=11008&amp;deviceid=00000000000000000&amp;codever=1&amp;opaque=0f2063a8d05cd598696250f39b10354ed2bdbfae'></tizen:metadata>
+    <tizen:metadata key='http://samsung.com/tv/metadata/devel.api.version' value='2.4'></tizen:metadata>
+    <tizen:app-control>
+        <tizen:src name='index.html' reload='disable'></tizen:src>
+        <tizen:operation name='http://samsung.com/appcontrol/operation/eden_resume'></tizen:operation>
+    </tizen:app-control>
+    <name>ok兔儿童</name>
+    <tizen:privilege name="http://developer.samsung.com/privilege/network.public"/>
+    <tizen:privilege name="http://developer.samsung.com/privilege/network"/>
+    <tizen:privilege name="http://tizen.org/privilege/network.connection"/>
+    <tizen:privilege name="http://developer.samsung.com/privilege/network.partner"/>
+    <tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
+    <tizen:profile name="tv"/>
+    <tizen:setting screen-orientation="landscape" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+</widget> 
