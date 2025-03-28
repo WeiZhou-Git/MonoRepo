@@ -1,10 +1,18 @@
-// import CryptoJS from "crypto-js";
-import { KJUR, hextob64u } from 'jsrsasign';
-import { delCode } from '@samsung-speaker/utils';
+import { deviceid } from '../utils/device'
+import { NetEaseCloudSDK } from '@netease-music/player-sdk'
 
-const tempMac = window.webapis ? window.webapis.network.getMac() : 'fc:92:54:08:65:06';
-export let mac = tempMac || 'fc:92:54:08:65:06';
-export let deviceid = delCode(mac, ":");
+
+const deviceInfo = {
+	deviceType: 'andrwear',
+	os: 'tizen',
+	appVer: '0.1',
+	channel: 'hm',
+	model: 'kys',
+	deviceId: deviceid,
+	brand: 'hm',
+	osVer: '8.1.0',
+	clientIp: 'a301020000000000ca86822e6931d65d',
+};
 
 const privateKey =
 	`-----BEGIN PRIVATE KEY-----
@@ -34,21 +42,40 @@ QinJsJMYKZV3X9Bo7YQTaY8eeQXwsIc3s2mvHGdqLUOQq/B7l4npitCqka1f52yS
 cfAnRv2kvcO1uy9Lpj1p1FdPiDUFd/h8F44HoTI9OVJSjhp0tJTBVwz9+gBSXqJA
 axD3QSlZsplxOx8KnmpdjnToQ10Zz2lM/ZYru8r3MbV1ziXUqUDd4FTXYo3U0B2c
 Cb7zVbqzCyBlMzoRH2v1Yhfl
------END PRIVATE KEY-----`
+-----END PRIVATE KEY-----`;
 
-/**
- * 生成 RSA SHA-256 签名
- */
-export const rsa256Sign = function (content, charset = 'utf8') {
-	try {
-		const sig = new KJUR.crypto.Signature({ alg: "SHA256withRSA" });
-		sig.init(privateKey);
-		sig.updateString(content);
-		const signature = sig.sign();
-		console.log("生成的签名:", hextob64u(signature));
-		return hextob64u(signature)
-	} catch (err) {
-		throw new Error(`RSA content = ${content}; charset = ${charset}`, err);
-	}
-}
+const deviceInfoString = JSON.stringify(deviceInfo);
+
+const CloudParams = {
+	appId: 'a301020000000000ca86822e6931d65d',
+	signType: 'RSA_SHA256',
+	appSecret: 'de7cda13059df04f8495b52229beefad',
+	device: deviceInfoString,
+	privateKey
+};
+
+
+
+
+
+(function async (window) {
+    let readyCallbacks = [];
+	let sdkInitReady = false;
+	const handlerWebSdkInitReady = function () {
+		sdkInitReady = true;
+		readyCallbacks.forEach(cb => cb && cb());
+	};
+	window.onWebSdkInitReady = function (cb) {
+		console.log('[websdk init func]');
+		sdkInitReady ? cb && cb() : readyCallbacks.push(cb);
+	};
+
+    (async function() {
+        let sdkState = await NetEaseCloudSDK.init(CloudParams);
+        handlerWebSdkInitReady();
+
+        console.log(sdkState)
+    })();
+})(window)
+
 

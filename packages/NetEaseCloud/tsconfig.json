@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",       // 输出到 dist 目录
+    "target": "ES6",        // 编译目标 ES6
+    "module": "CommonJS",   // 使用 CommonJS 规范
+    "strict": true          // 开启严格模式
+  },
+  "include": ["src"]        // 只编译 src 目录
+}

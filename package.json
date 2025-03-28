@@ -3,10 +3,11 @@
 	"version": "1.0.0",
 	"private": true,
 	"workspaces": [
-    	"packages/*"
-    ],
+		"packages/*"
+	],
 	"scripts": {
-		"start": "yarn --cwd packages/Speaker start"
+		"start": "yarn --cwd packages/Speaker start",
+		"sdk-start": "yarn --cwd packages/NetEaseCloud start"
 	},
 	"dependencies": {
 		"@babel/core": "7.9.0",
@@ -80,6 +81,8 @@
 		"workbox-webpack-plugin": "4.3.1"
 	},
 	"devDependencies": {
+		"@types/jquery": "^3.5.32",
+		"@types/jsrsasign": "^10.5.15",
 		"axios": "^0.19.2",
 		"babel-polyfill": "^6.26.0",
 		"crypto-js": "^4.1.1",

@@ -1,0 +1,11 @@
+{
+    "name": "@netease-music/player-sdk",
+    "version": "1.0.0",
+    "main": "dist/main.js",
+    "scripts": {
+      "start": "tsc -p tsconfig.json",
+      "start-w": "tsc -p tsconfig.json --watch"
+    },
+    "private": true
+  }
+  

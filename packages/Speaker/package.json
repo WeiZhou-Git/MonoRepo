@@ -1,8 +1,8 @@
 {
-  "name": "speaker",
-  "version": "1.0.0",
-  "license": "MIT",
-  "scripts": {
+	"name": "speaker",
+	"version": "1.0.0",
+	"license": "MIT",
+	"scripts": {
 		"start": "node scripts/start.js",
 		"build:test": "dotenv -e .env.test node scripts/build.js",
 		"build:prod": "dotenv -e .env.prod node scripts/build.js ",
@@ -12,7 +12,7 @@
 		"postbuild:prod": "node scripts/tizen_package.js",
 		"postbuild:prod:low": "node scripts/tizen_package.js"
 	},
-  "eslintConfig": {
+	"eslintConfig": {
 		"extends": "react-app"
 	},
 	"browserslist": {
@@ -83,7 +83,5 @@
 		]
 	},
 	"homepage": ".",
-	"dependencies": {
-    	"@samsung-speaker/utils": "*"
-  	}
+	"dependencies": {}
 }
