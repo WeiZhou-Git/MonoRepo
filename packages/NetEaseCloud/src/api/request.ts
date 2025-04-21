@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { objKeySort } from '@samsung-speaker/utils';
+import { objKeySort } from '../utils/utils';
 import { rsa256Sign } from './getApiSign';
 
 interface CommonParams {
