@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.server_axios = void 0;
 const axios_1 = require("axios");
-const utils_1 = require("@samsung-speaker/utils");
+const utils_1 = require("../utils/utils");
 const getApiSign_1 = require("./getApiSign");
 const server_axios = ({ apiUrl, commonParams }) => {
     let headers = {
